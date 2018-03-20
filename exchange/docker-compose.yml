@@ -1,0 +1,12 @@
+version: '3'
+services:
+  django_server:
+    image: dinakar/exchange
+    command: ./startup_scripts/django_server.sh
+    env_file:
+      - django.env
+    volumes:
+      - ./volumes/django_server/logs:/exchange/logs
+    ports:
+      - 9001:8000
+    restart: always

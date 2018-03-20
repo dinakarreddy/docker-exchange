@@ -1,0 +1,12 @@
+version: '3'
+services:
+  django_server:
+    image: dinakar/broker
+    command: ./startup_scripts/django_server.sh
+    env_file:
+      - django.env
+    volumes:
+      - ./volumes/django_server/logs:/broker/logs
+    ports:
+      - 9000:8000
+    restart: always
